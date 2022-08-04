@@ -1,0 +1,36 @@
+<meta charset="utf-8" />
+<h1>CALCULADORA DE INDICE DE MASA CORPORAL</h1>
+<script>
+  function saltarLinea() {
+    document.write("<br>");
+    document.write("<br>");
+  }
+  function imprimir(frase) {
+    document.write(frase);
+    saltarLinea();
+  }
+  function calcularImc(peso, altura) {
+    return peso / (altura * altura);
+  }
+  nombre = prompt("INFORME SU NOMBRE");
+  pesoInformado = prompt(nombre + ", INDIQUE SU PESO: (EJ: 50.200)");
+  alturaInformado = prompt(nombre + ", INDIQUE SU ALTURA: (EJ: 1.50)");
+
+  imcCalculado = calcularImc(pesoInformado * 1, alturaInformado * 1);
+
+  imprimir(nombre + ", SU INDICE DE MASA CORPORAL ES: " + imcCalculado);
+
+  if (imcCalculado < 18.5) {
+    document.write(
+      "Su indice de Masa Corporal esta por debajo de lo recomendado"
+    );
+  } else if (imcCalculado > 18.5 && imcCalculado < 24.9) {
+    imprimir("Su indice de Masa Corporal esta Normal");
+  } else if (imcCalculado === 25.0) {
+    imprimir("Su indice de Masa Corporal indica que tiene Sobrepeso");
+  } else if (imcCalculado > 25.0 && imcCalculado < 29.9) {
+    imprimir("Su indice de Masa Corporal esta indica Preobesidad");
+  } else if (imcCalculado >= 30.0) {
+    imprimir("Su indice de Masa Corporal indica Obesidad");
+  }
+</script>

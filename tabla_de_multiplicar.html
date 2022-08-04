@@ -1,0 +1,21 @@
+<meta charset="UTF-8" />
+<h1>Tabla de multiplicar</h1>
+<script>
+  function saltarLinea() {
+    document.write("<br>");
+    document.write("<br>");
+  }
+  function imprimir(frase) {
+    document.write(frase);
+    saltarLinea();
+  }
+  var numero = parseInt(
+    prompt("INDICA EL NUMERO DEL QUE QUIERES CONOCER LA TABLA DE MULTIPLICAR")
+  );
+
+  var i = 1;
+  while (i < 11) {
+    imprimir(` ${numero} x ${i} = ${i * numero}`);
+    i = i + 1;
+  }
+</script>

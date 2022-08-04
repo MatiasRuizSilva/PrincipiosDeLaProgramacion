@@ -1,0 +1,26 @@
+<meta charset="UTF-8" />
+<h1>Desafio Loteria</h1>
+<script>
+  function saltarLinea() {
+    document.write("<br>");
+  }
+
+  function imprimir(frase) {
+    document.write(frase);
+    saltarLinea();
+  }
+
+  var numberMax = parseInt(prompt("INDIQUE EL NUMERO MAXIMO DEL SORTEO"));
+
+  var numeroRandom = Math.round(Math.random() * numberMax);
+
+  var apuesta = parseInt(prompt("INDIQUE EL NUMERO POR EL QUE USTED APUESTA"));
+
+  if (apuesta === numeroRandom) {
+    imprimir("FELICIDADES, Usted gano");
+  } else if (numeroRandom > apuesta) {
+    imprimir("UH, Le pifiaste era mas arriba");
+  } else {
+    imprimir("UH, Le pifiaste era mas bajo");
+  }
+</script>

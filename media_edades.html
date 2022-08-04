@@ -1,0 +1,28 @@
+<meta charset="utf-8" />
+<h1>ADIVINA EL NUMERO</h1>
+<script>
+  function saltarLinea() {
+    document.write("<br>");
+    document.write("<br>");
+  }
+  function imprimir(frase) {
+    document.write(frase);
+    saltarLinea();
+  }
+
+  cantidadFamilia = parseInt(
+    prompt("Ingrese la cantidad de miembros de su familia")
+  );
+  var sumaEdades = 0;
+  var iteracion = 0;
+
+  while (iteracion != cantidadFamilia) {
+    var edades = parseInt(prompt("Ingrese la edad de los familiares"));
+    sumaEdades = sumaEdades + edades;
+    iteracion++;
+  }
+
+  var promedioEdades = sumaEdades / cantidadFamilia;
+
+  imprimir("El promedio de las Edades es de " + promedioEdades + " años");
+</script>
