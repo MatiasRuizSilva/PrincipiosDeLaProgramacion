@@ -12,10 +12,20 @@
     pincel.strokeStyle = "black";
     pincel.strokeRect(x, y, 50, 50);
   }
+  //   let x = 0;
+  //   while (x < 600) {
+  //     dibujarCuadradoVerde(x, 0, "RED");
+  //     dibujarCuadradoVerde(x, 50, "yellow");
+  //     dibujarCuadradoVerde(x, 100, "blue");
+  //     dibujarCuadradoVerde(x, 150, "GREEN");
+  //     x = x + 50;  // poner solo x+50 genera bucle infinito
+  //   }
 
-  dibujarCuadradoVerde(0);
-  dibujarCuadradoVerde(50);
-  dibujarCuadradoVerde(100);
-  dibujarCuadradoVerde(150, 50, "blue");
-  dibujarCuadradoVerde(200, 0, "red");
+  for (let x = 0; x < 600; x += 50) {
+    //importante x+=50 o poner x=x+50,
+    dibujarCuadradoVerde(x, 0, "RED");
+    dibujarCuadradoVerde(x, 50, "yellow");
+    dibujarCuadradoVerde(x, 100, "blue");
+    dibujarCuadradoVerde(x, 150, "GREEN");
+  }
 </script>
