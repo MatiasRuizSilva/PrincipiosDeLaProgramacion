@@ -1,0 +1,83 @@
+<canvas width="600" height="400"></canvas>
+<h1>***** HAZ CLICK EN EL BLANCO *****</h1>
+<br><h3>YOUR SCORE IS: </h3><h2>   0</h2> 
+<script>
+var pantalla = document.querySelector("canvas");
+var pincel = pantalla.getContext("2d");
+
+pincel.fillStyle = "lightgrey";
+pincel.fillRect(0,0,600,400);
+
+var radio = 10;
+var xAleatorio;
+var yAleatorio;
+
+function dibujarCirculo(x,y,radio,color){
+pincel.fillStyle = color;
+pincel.beginPath();
+pincel.arc(x,y,radio,0,2*Math.PI);
+pincel.fill();
+}
+
+function limpiarPantalla(){
+    pincel.clearRect(0,0,600,400);
+}
+var x=1
+
+function simulaMovimiento(){
+limpiarPantalla()
+dibujarCirculo(x,70,50)
+x++;
+} 
+
+function dibujarObjetivo(x,y){
+    dibujarCirculo(x,y,radio+40,"black");
+    dibujarCirculo(x,y,radio+30,"red");
+    dibujarCirculo(x,y,radio+20,"white");
+    dibujarCirculo(x,y, radio+10,"red");
+    dibujarCirculo(x,y,radio,"white");
+}
+
+function sortearPosicion(maximo){
+return Math.floor(Math.random()*maximo)
+}
+
+function objetivo(){
+    limpiarPantalla()
+    
+    xAleatorio = sortearPosicion(600);
+    yAleatorio = sortearPosicion(400);
+    dibujarObjetivo(xAleatorio,yAleatorio) 
+}
+var puntaje = document.querySelector("h2");
+
+var n = 0
+
+function disparar(evento){
+    var x = evento.pageX-pantalla.offsetLeft;
+    var y = evento.pageY-pantalla.offsetTop;
+    
+    if((x> xAleatorio - radio) &&
+    (y> yAleatorio - radio) &&
+    (x< xAleatorio + radio) &&
+    (y< yAleatorio + radio)){
+        n++
+        puntaje.innerHTML = n
+        // alert("TIRO CERTERO")
+    }
+}
+
+setInterval(objetivo,3000)
+
+pantalla.onclick = disparar
+
+function gameOver(){
+    alert("GAME OVER, YOUR SCORE IS " + n + " POINTS , press F5")
+}
+
+setInterval(gameOver,10000)
+
+
+
+
+</script>
