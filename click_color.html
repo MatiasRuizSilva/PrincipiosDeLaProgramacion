@@ -1,0 +1,21 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+  var pantalla = document.querySelector("canvas"); //agarramos canvas del HTML
+  var pincel = pantalla.getContext("2d"); //indicamos que sera en 2 dimenciones sobre donde trabajara el pincel
+
+  pincel.fillStyle = "red"; //color rojo (quedaria el fondo primeramente)
+  pincel.fillRect(0, 0, 600, 400); //marca que se pinta con el color de arriba
+
+  function dibujarCirculo(evento) {
+    var x = evento.pageX - pantalla.offsetLeft; //punto X menos el borde
+    var y = evento.pageY - pantalla.offsetTop; //punto Y menos el borde
+
+    pincel.fillStyle = "blue"; //cambiamos color del pincel a azul
+    pincel.beginPath(); //decimos que se pintara con el color de arriba(en este caso nuevo pincel)
+    pincel.arc(x, y, 10, 0, 2 * 3.14); //dibuja circulo con su cordenada
+    pincel.fill(); //rellenamos con el color que elegimos
+    console.log(x + "," + y); //en la consola se mostraran las cordenadas X y Y guardadas mas arriba
+  }
+  pantalla.onclick = dibujarCirculo; //llamamos a la funcion dibujar circulo con cada click en el tamaño de "pantalla" indicado
+</script>
